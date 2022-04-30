@@ -88,14 +88,14 @@ window.addEventListener('DOMContentLoaded', function(){
     }
 
     function typ(){
-      ran = Math.floor(Math.random() * (words.length-2));
+      ran = Math.floor(Math.random() * (words.length-2))+1;
       var i = 0;
       var b = '';
       $('.typans').text('ローマ字: ' + String(words[ran]));
       $('.typpre').text('読み: ' + String(preview[ran]));
       $('.typnex').text('次に入力する文字: ' + String(words[ran][i]));
       $('.typnow').text('現在の入力: ');
-      $('body').keydown(function(event){
+      $('body').keypress(function(event){
         var a = event.key;
         console.log(a);
         console.log(words[ran][i]);
