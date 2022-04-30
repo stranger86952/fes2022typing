@@ -61,15 +61,18 @@ window.addEventListener('DOMContentLoaded', function(){
 
   function game(){
     disp('gaming');
+    $('.typsco').text('スコア: 0');
     timer = 60;
+    score = 0;
     var countup = setInterval(function(){
       timer--;
-      if(timer==0){
+      if(timer<0){
         clearInterval(countup);
         $('.typtim').text('終了！');
       }
       $('.typtim').text('残り時間: ' + String(timer) + '秒');
     } ,1000);
+
     function typ(){
       ran = Math.floor(Math.random() * (words.length-2));
       $('.typans').text('ローマ字: ' + String(words[ran]));
@@ -81,15 +84,24 @@ window.addEventListener('DOMContentLoaded', function(){
         console.log(a);
         console.log(words[ran][i]);
         if(a==words[ran][i]){
+          score = score + 5;
+          $('.typsco').text('スコア: ' + String(score));
           b = b + String(a);
           i++;
           $('.typnow').text('現在の入力: ' + String(b));
           if(b==words[ran]&&timer>0){
+            score = score + 10;
+            $('.typsco').text('スコア: ' + String(score));
             typ();
           }
         }
+        else{
+          score = score - 1;
+          $('.typsco').text('スコア: ' + String(score));
+        }
       });
     }
+
     typ();
   }
 
