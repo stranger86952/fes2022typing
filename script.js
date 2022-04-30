@@ -72,8 +72,8 @@ window.addEventListener('DOMContentLoaded', function(){
     } ,1000);
     function typ(){
       ran = Math.floor(Math.random() * (words.length-2));
-      $('.typans').text('ローマ字' + String(words[ran]));
-      $('.typpre').text('読み' + String(preview[ran]));
+      $('.typans').text('ローマ字: ' + String(words[ran]));
+      $('.typpre').text('読み: ' + String(preview[ran]));
       var i = 0;
       var b = '';
       $('body').keydown(function(event){
@@ -83,8 +83,8 @@ window.addEventListener('DOMContentLoaded', function(){
         if(a==words[ran][i]){
           b = b + String(a);
           i++;
-          $('.typnow').text('現在の入力' + String(b));
-          if(b==$('.typans')&&timer>0){
+          $('.typnow').text('現在の入力: ' + String(b));
+          if('ローマ字: ' + b==$('.typans')&&timer>0){
             typ();
           }
         }
