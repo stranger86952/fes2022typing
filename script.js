@@ -95,34 +95,35 @@ window.addEventListener('DOMContentLoaded', function(){
       $('.typpre').text('読み: ' + String(preview[ran]));
       $('.typnex').text('次に入力する文字: ' + String(words[ran][i]));
       $('.typnow').text('現在の入力: ');
-      $(window).onkeypress(function(event){
-        if(event)
-        var a = event.key;
-        console.log(a);
-        console.log(words[ran][i]);
-        if(a==words[ran][i]){
-          typCA = typCA + 1;
-          $('.typsco').text('スコア: ' + String(score));
-          b = b + String(a);
-          i++;
-          $('.typnex').text('次に入力する文字: ' + String(words[ran][i]));
-          $('.typnow').text('現在の入力: ' + String(b));
-          if(b==words[ran]&&timer>0){
-            score = score + 10;
-            $('.typsta').text('ステータス: +10');
+      $(window).keydown(function(event){
+        if(64<event.which&&event.which<91){
+          var a = event.key;
+          console.log(a);
+          console.log(words[ran][i]);
+          if(a==words[ran][i]){
+            typCA = typCA + 1;
             $('.typsco').text('スコア: ' + String(score));
-            typ();
+            b = b + String(a);
+            i++;
+            $('.typnex').text('次に入力する文字: ' + String(words[ran][i]));
+            $('.typnow').text('現在の入力: ' + String(b));
+            if(b==words[ran]&&timer>0){
+              score = score + 10;
+              $('.typsta').text('ステータス: +10');
+              $('.typsco').text('スコア: ' + String(score));
+              typ();
+            }
+            else{
+              score = score + 5;
+              $('.typsta').text('ステータス: +5');
+            }
           }
           else{
-            score = score + 5;
-            $('.typsta').text('ステータス: +5');
+            score = score - 1;
+            $('.typsta').text('ステータス: -1');
+            typWA = typWA + 1;
+            $('.typsco').text('スコア: ' + String(score));
           }
-        }
-        else{
-          score = score - 1;
-          $('.typsta').text('ステータス: -1');
-          typWA = typWA + 1;
-          $('.typsco').text('スコア: ' + String(score));
         }
       });
     }
