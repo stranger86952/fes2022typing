@@ -118,7 +118,7 @@ window.addEventListener('DOMContentLoaded', function(){
           }
         }
         else{
-          score = score - 1;
+          score = score - 0.04;
           $('.typsta').text('ステータス: -1');
           typWA = typWA + 1;
           $('.typsco').text('スコア: ' + String(score));
