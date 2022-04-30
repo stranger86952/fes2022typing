@@ -66,22 +66,26 @@ window.addEventListener('DOMContentLoaded', function(){
       timer--;
       if(timer==0){
         clearInterval(countup);
+        $('.typtim').text('終了！');
       }
       $('.typtim').text('残り時間: ' + String(timer) + '秒');
     } ,1000);
-    while($('.typeans').text()==$('.typnow')&&timer>0){
+    function typ(){
       ran = Math.floor(Math.random() * (words.length-2));
       $('.typans')=words[ran];
       $('.typpre')=preview[ran];
       var i = 0;
-      $('body').keydown(function(event) {
+      $('body').keydown(function(event){
         var a = event.key;
-        if(a==words[ran][i]) $('.typnow').append(a);
+        if(a==words[ran][i]){
+          $('.typnow').append(a);
+          if($('.typeans').text()==$('.typnow')&&timer>0){
+            typ()
+          }
+        }
       });
     }
-    if(timer==0){
-      $('.typtim').text('終了！');
-    }
+    typ();
   }
 
   $('#gaming').click(function() {
