@@ -21,10 +21,11 @@
     </div>
     <div class="after">
       <div class="result">
-
+        <span class="score"></span>
+        <span class="typm"></span>
       </div>
-      <input type="text" name="" value="ニックネームを入力">
-      <button type="button" id="Bentry">ランキングに登録</button>
+      <input type="text" class="entname" value="ニックネームを入力">
+      <button type="button" onclick="rankingB($('.entname').text(),$('.score').text(),$('.typm').text())">ランキングに登録</button>
     </div>
     <div class="ranking">
       <span>ランキング</span>
