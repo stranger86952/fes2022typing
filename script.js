@@ -62,27 +62,30 @@ window.addEventListener('DOMContentLoaded', function(){
   function game(){
     disp('gaming');
     $('.typsco').text('スコア: 0');
+    $('.typsta').text('ステータス: 0');
     timer = 60;
     score = 0;
     typCA = 0;
     typWA = 0;
-    var countup = setInterval(function(){
+    var countup = setInterval(timecount,1000,timer);
+
+    function timecount(){
       timer--;
-      if(timer<0){
+      if(timer<-2){
+        clearInterval(countup);
+        disp('after');
+        $('.score').text('あなたのスコア: ' + String(score));
+        $('.typm').text('1秒で平均' + String(Math.floor((typCA+typWA)/60)) + '回タイピング');
+        $('.typCA').text('正しく打った回数: ' + String(typCA));
+        $('.typWA').text('間違ったタイピング: ' + String(typWA));
+      }
+      else if(timer<0){
         $('.typtim').text('終了！');
-        if(timer<-2){
-          clearInterval(countup);
-          disp('after');
-          $('.score').text('あなたのスコア: ' + String(score));
-          $('.typm').text('1秒で平均' + String(Math.floor((typCA+typWA)/60)) + '回タイピング');
-          $('.typCA').text('正しく打った回数: ' + String(typCA));
-          $('.typWA').text('間違ったタイピング: ' + String(typWA));
-        }
       }
       else{
         $('.typtim').text('残り時間: ' + String(timer) + '秒');
       }
-    } ,1000);
+    }
 
     function typ(){
       ran = Math.floor(Math.random() * (words.length-2));
@@ -90,26 +93,33 @@ window.addEventListener('DOMContentLoaded', function(){
       var b = '';
       $('.typans').text('ローマ字: ' + String(words[ran]));
       $('.typpre').text('読み: ' + String(preview[ran]));
+      $('.typnex').text('次に入力する文字: ' + String(words[ran][i]));
       $('.typnow').text('現在の入力: ');
       $('body').keydown(function(event){
         var a = event.key;
         console.log(a);
         console.log(words[ran][i]);
         if(a==words[ran][i]){
-          score = score + 5;
           typCA = typCA + 1;
           $('.typsco').text('スコア: ' + String(score));
           b = b + String(a);
           i++;
+          $('.typnex').text('次に入力する文字: ' + String(words[ran][i]));
           $('.typnow').text('現在の入力: ' + String(b));
           if(b==words[ran]&&timer>0){
             score = score + 10;
+            $('.typsta').text('ステータス: +10');
             $('.typsco').text('スコア: ' + String(score));
             typ();
+          }
+          else{
+            score = score + 5;
+            $('.typsta').text('ステータス: +5');
           }
         }
         else{
           score = score - 1;
+          $('.typsta').text('ステータス: -1');
           typWA = typWA + 1;
           $('.typsco').text('スコア: ' + String(score));
         }
