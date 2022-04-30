@@ -81,10 +81,10 @@ window.addEventListener('DOMContentLoaded', function(){
         b = b + String(a);
         console.log(a);
         console.log(words[ran][i]);
-        if(String(a)==String(words[ran][i])){
+        if(a==words[ran][i]){
           i++;
           $('.typnow').text('現在の入力' + String(b));
-          if(b==$('.typnow')&&timer>0){
+          if(b==$('.typans')&&timer>0){
             typ();
           }
         }
