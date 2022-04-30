@@ -77,7 +77,6 @@ window.addEventListener('DOMContentLoaded', function(){
         $('.score').text('あなたのスコア: ' + String(score));
         $('.typm').text('1秒で平均' + String(Math.floor((typCA+typWA)/60)) + '回タイピング');
         $('.typCA').text('正しく打った回数: ' + String(typCA));
-        $('.typWA').text('間違ったタイピング: ' + String(typWA));
       }
       else if(timer<0){
         $('.typtim').text('終了！');
@@ -91,8 +90,8 @@ window.addEventListener('DOMContentLoaded', function(){
       ran = Math.floor(Math.random() * (words.length-2))+1;
       var i = 0;
       var b = '';
-      $('.typans').text('ローマ字: ' + String(words[ran]));
-      $('.typpre').text('読み: ' + String(preview[ran]));
+      $('.typans').text('英語: ' + String(words[ran]));
+      $('.typpre').text('日本語: ' + String(preview[ran]));
       $('.typnex').text('次に入力する文字: ' + String(words[ran][i]));
       $('.typnow').text('現在の入力: ');
       $(window).keypress(function(event){
@@ -119,10 +118,7 @@ window.addEventListener('DOMContentLoaded', function(){
           }
         }
         else{
-          score = score - 1;
-          $('.typsta').text('ステータス: -1');
-          typWA = typWA + 1;
-          $('.typsco').text('スコア: ' + String(score));
+          $('.typsta').text('ステータス: ミス！');
         }
       });
     }
