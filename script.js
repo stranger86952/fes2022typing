@@ -78,10 +78,10 @@ window.addEventListener('DOMContentLoaded', function(){
       var b = '';
       $('body').keydown(function(event){
         var a = event.key;
-        b = b + String(a);
         console.log(a);
         console.log(words[ran][i]);
         if(a==words[ran][i]){
+          b = b + String(a);
           i++;
           $('.typnow').text('現在の入力' + String(b));
           if(b==$('.typans')&&timer>0){
