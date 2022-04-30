@@ -33,39 +33,44 @@ window.addEventListener('DOMContentLoaded', function(){
     }
   }
 
+  $('#game').click(function() {
+    disp('game');
+    game();
+  })
+
   function disp(classname){
     if(classname=='title'){
       $('.title').show();
       $('.game').hide();
-      $('gaming').hide();
+      $('.gaming').hide();
       $('.after').hide();
       $('.ranking').hide();
     }
     else if(classname=='game'){
       $('.title').hide();
       $('.game').show();
-      $('gaming').hide();
+      $('.gaming').hide();
       $('.after').hide();
       $('.ranking').hide();
     }
     else if(classname=='gaming'){
       $('.title').hide();
       $('.game').hide();
-      $('gaming').show();
+      $('.gaming').show();
       $('.after').hide();
       $('.ranking').hide();
     }
     else if(classname=='after'){
       $('.title').hide();
       $('.game').hide();
-      $('gaming').hide();
+      $('.gaming').hide();
       $('.after').show();
       $('.ranking').hide();
     }
     else if(classname=='ranking'){
       $('.title').hide();
       $('.game').hide();
-      $('gaming').hide();
+      $('.gaming').hide();
       $('.after').hide();
       $('.ranking').show();
     }
@@ -76,11 +81,11 @@ window.addEventListener('DOMContentLoaded', function(){
   })
 
   $('#game').click(function() {
-    disp('title');
+    disp('game');
   })
 
   $('#ranking').click(function() {
-    disp('title');
+    disp('ranking');
   })
 
   function rankingA(rankingdate,e){
