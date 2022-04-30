@@ -28,9 +28,9 @@ function disp(classname){
 }
 
 function rankingA(rankingdate,e){
-  rankingdate=e.split(\r\n);
+  rankingdate=e.split(/\r\n|\n/);
   for(var i=0;i<(rankingdate.length-1);i++){
-    ran=rankingdate[i].split(\s);
+    ran=rankingdate[i].split(/\s/);
     $('#ranking').append('<tr><td>' + String(i+1) + '位</td><td>' + String(ran[0]) + '</td><td>' + String(ran[1]) + '</td><td>' + String(ran[2]) + '</td></tr>');
   }
 }
@@ -38,11 +38,11 @@ function rankingA(rankingdate,e){
 function rankingB(name,score,typm){
   var s="";
   for(var i=0;i<(rankingdate.length-1);i++){
-    ran = rankingdate[i].split(\s);
+    ran = rankingdate[i].split(/\s/);
     if(ran[0]<=Number(score)){
-      s + String(score) + ' ' + String(name) + ' ' + String(typm) + \r\n;
+      s + String(score) + ' ' + String(name) + ' ' + String(typm) + /\r\n|\n/;
       for(var j=i;j<(rankingdate.length-1);j++){
-        s = s + ranking[j] + \r\n;
+        s = s + ranking[j] + /\r\n|\n/;
       }
       try {
         fs.appendFileSync('./list.txt', s, 'utf-8');
@@ -51,7 +51,7 @@ function rankingB(name,score,typm){
       }
     }
     else{
-      s = s + ranking[i] + \r\n;
+      s = s + ranking[i] + /\r\n|\n/;
     }
   }
   rankingdate.push(score + ' ' + name + ' ' + typm);
