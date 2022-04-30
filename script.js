@@ -72,15 +72,17 @@ window.addEventListener('DOMContentLoaded', function(){
     } ,1000);
     function typ(){
       ran = Math.floor(Math.random() * (words.length-2));
-      $('.typans')=words[ran];
-      $('.typpre')=preview[ran];
+      $('.typans').text('ローマ字' + String(words[ran]));
+      $('.typpre').text('読み' + String(preview[ran]));
       var i = 0;
+      var b = '';
       $('body').keydown(function(event){
         var a = event.key;
-        if(a==words[ran][i]){
-          $('.typnow').append(a);
-          if($('.typeans').text()==$('.typnow')&&timer>0){
-            typ()
+        b = b + String(a);
+        if(String(a)==String(words[ran][i])){
+          $('.typnow').text('現在の入力' + String(b));
+          if(b==$('.typnow')&&timer>0){
+            typ();
           }
         }
       });
