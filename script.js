@@ -95,7 +95,8 @@ window.addEventListener('DOMContentLoaded', function(){
       $('.typpre').text('読み: ' + String(preview[ran]));
       $('.typnex').text('次に入力する文字: ' + String(words[ran][i]));
       $('.typnow').text('現在の入力: ');
-      $('body').keypress(function(event){
+      $(window).onkeypress(function(event){
+        if(event)
         var a = event.key;
         console.log(a);
         console.log(words[ran][i]);
@@ -118,7 +119,7 @@ window.addEventListener('DOMContentLoaded', function(){
           }
         }
         else{
-          score = score - 0.04;
+          score = score - 1;
           $('.typsta').text('ステータス: -1');
           typWA = typWA + 1;
           $('.typsco').text('スコア: ' + String(score));
