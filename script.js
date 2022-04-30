@@ -64,27 +64,40 @@ window.addEventListener('DOMContentLoaded', function(){
     $('.typsco').text('スコア: 0');
     timer = 60;
     score = 0;
+    typCA = 0;
+    typWA = 0;
     var countup = setInterval(function(){
       timer--;
       if(timer<0){
-        clearInterval(countup);
         $('.typtim').text('終了！');
+        if(timer<-2){
+          clearInterval(countup);
+          disp('after');
+          $('.score').text('あなたのスコア: ' + String(score));
+          $('.typm').text('1秒で平均' + String(Math.floor((typCA+typWA)/60)) + '回タイピング');
+          $('.typCA').text('正しく打った回数: ' + String(typCA));
+          $('.typWA').text('間違ったタイピング: ' + String(typWA));
+        }
       }
-      $('.typtim').text('残り時間: ' + String(timer) + '秒');
+      else{
+        $('.typtim').text('残り時間: ' + String(timer) + '秒');
+      }
     } ,1000);
 
     function typ(){
       ran = Math.floor(Math.random() * (words.length-2));
-      $('.typans').text('ローマ字: ' + String(words[ran]));
-      $('.typpre').text('読み: ' + String(preview[ran]));
       var i = 0;
       var b = '';
+      $('.typans').text('ローマ字: ' + String(words[ran]));
+      $('.typpre').text('読み: ' + String(preview[ran]));
+      $('.typnow').text('現在の入力: ');
       $('body').keydown(function(event){
         var a = event.key;
         console.log(a);
         console.log(words[ran][i]);
         if(a==words[ran][i]){
           score = score + 5;
+          typCA = typCA + 1;
           $('.typsco').text('スコア: ' + String(score));
           b = b + String(a);
           i++;
@@ -97,6 +110,7 @@ window.addEventListener('DOMContentLoaded', function(){
         }
         else{
           score = score - 1;
+          typWA = typWA + 1;
           $('.typsco').text('スコア: ' + String(score));
         }
       });
