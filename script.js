@@ -84,7 +84,7 @@ window.addEventListener('DOMContentLoaded', function(){
           b = b + String(a);
           i++;
           $('.typnow').text('現在の入力: ' + String(b));
-          if('ローマ字: ' + b==$('.typans')&&timer>0){
+          if(b==words[ran]&&timer>0){
             typ();
           }
         }
