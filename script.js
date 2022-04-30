@@ -9,35 +9,6 @@ window.addEventListener('DOMContentLoaded', function(){
   fetch("./words.txt").then(e => e.text()).then(e => words=e.split(/\s/));
   fetch("./preview.txt").then(e => e.text()).then(e => preview=e.split(/\s/));
 
-  function game(){
-    disp('gaming');
-    timer = 60;
-    while(timer>0){
-      var countup = setInterval(function(){
-        timer--;
-        $('.typtim').text('残り時間: ' + String(timer) + '秒');
-      } ,1000);
-    }
-    while($('.typeans').text()==$('.typnow')&&timer>0){
-      ran = Math.floor(Math.random() * (words.length-2));
-      $('typans')=words[ran];
-      $('typpre')=preview[ran];
-      var i = 0;
-      $('body').keydown(function(event) {
-        var a = event.key;
-        if(a==words[ran][i]) $('.typnow').append(a);
-      });
-    }
-    if(timer==0){
-      $('.typtim').text('終了！');
-    }
-  }
-
-  $('#game').click(function() {
-    disp('game');
-    game();
-  })
-
   function disp(classname){
     if(classname=='title'){
       $('.title').show();
@@ -86,6 +57,35 @@ window.addEventListener('DOMContentLoaded', function(){
 
   $('#ranking').click(function() {
     disp('ranking');
+  })
+
+  function game(){
+    disp('gaming');
+    timer = 60;
+    var countup = setInterval(function(){
+      timer--;
+      if(timer==0){
+        clearInterval(countup);
+      }
+      $('.typtim').text('残り時間: ' + String(timer) + '秒');
+    } ,1000);
+    while($('.typeans').text()==$('.typnow')&&timer>0){
+      ran = Math.floor(Math.random() * (words.length-2));
+      $('.typans')=words[ran];
+      $('.typpre')=preview[ran];
+      var i = 0;
+      $('body').keydown(function(event) {
+        var a = event.key;
+        if(a==words[ran][i]) $('.typnow').append(a);
+      });
+    }
+    if(timer==0){
+      $('.typtim').text('終了！');
+    }
+  }
+
+  $('#gaming').click(function() {
+    game();
   })
 
   function rankingA(rankingdate,e){
