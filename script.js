@@ -20,7 +20,7 @@ function game(){
     } ,1000);
   }
   while($('.typeans').text()==$('.typnow')&&timer>0){
-    ran = Math.floor(Math.random() * ((words.length)–1)+1);
+    ran = Math.floor(Math.random() * (words.length-2));
     $('typans')=words[ran];
     $('typpre')=preview[ran];
     var i = 0;
