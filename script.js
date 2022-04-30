@@ -72,6 +72,18 @@ function disp(classname){
   }
 }
 
+$('#title').click(function() {
+  disp('title');
+})
+
+$('#game').click(function() {
+  disp('title');
+})
+
+$('#ranking').click(function() {
+  disp('title');
+})
+
 function rankingA(rankingdate,e){
   rankingdate=e.split(/\r\n|\n/);
   for(var i=0;i<(rankingdate.length-1);i++){
@@ -100,4 +112,10 @@ function rankingA(rankingdate,e){
     }
   }
   rankingdate.push(score + ' ' + name + ' ' + typm);
-}*/
+}
+
+$('#entry').click(function() {
+  rankingB($('.entname').text(),$('.score').text(),$('.typm').text());
+})
+
+*/
