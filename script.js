@@ -79,7 +79,10 @@ window.addEventListener('DOMContentLoaded', function(){
       $('body').keydown(function(event){
         var a = event.key;
         b = b + String(a);
+        console.log(a);
+        console.log(words[ran][i]);
         if(String(a)==String(words[ran][i])){
+          i++;
           $('.typnow').text('現在の入力' + String(b));
           if(b==$('.typnow')&&timer>0){
             typ();
