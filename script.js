@@ -70,7 +70,6 @@ window.addEventListener('DOMContentLoaded', function(){
     disp('ranking');
   })
 
-  timerS = 60;
   scoreS = 0;
   typCAS = 0;
   bonusS = 0;
@@ -88,7 +87,8 @@ window.addEventListener('DOMContentLoaded', function(){
     $('.typnex').text('次に入力する文字: ' + String(words[ran][i]));
     $('.typnow').text('現在の入力: ');
     $(document).on('keydown','body',function(event){
-      if(!gametyu&&!gametyu2){
+      setTimeout(return typ(typCA,bonus,bonusmax,score);,10000);
+      if(gametyu==false || gametyu2==false){
         return false;
       }
       var a = event.key;
