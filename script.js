@@ -187,7 +187,7 @@ window.addEventListener('DOMContentLoaded', function(){
     if(localStorage['kazu'] == null){
       return false;
     }
-    var tbl = new Array(localStorage.getItem['kazu']);
+    var rankingdate = new Array(localStorage.getItem['kazu']);
     for(var i=0;i<localStorage.getItem['kazu'];i++){
       ran=localStorage.getItem['kazu' + String(i)].split(/\s/);
       rankingdate[i] = ran;
