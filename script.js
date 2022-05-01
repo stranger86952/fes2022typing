@@ -109,10 +109,7 @@ window.addEventListener('DOMContentLoaded', function(){
       $('.typnex').text('次に入力する文字: ' + String(words[ran][i]));
       $('.typnow').text('現在の入力: ');
       $(window).keypress(function(event){
-        console.log(event.keyCode)
         var a = event.key;
-        console.log(a);
-        console.log(words[ran][i]);
         if(a==words[ran][i]){
           typCA = typCA + 1;
           b = b + String(a);
@@ -138,11 +135,13 @@ window.addEventListener('DOMContentLoaded', function(){
             $('.typbon').text('ボーナス: ' + String(bonus));
             $('.typsco').text('スコア: ' + String(score));
           }
+          console.log('yes');
         }
         else{
           bonus = 0;
           bonus = Math.floor((bonus/60)*1000)/1000;
           $('.typsta').text('ステータス: ミス！');
+          console.log('yes');
         }
       });
     }
