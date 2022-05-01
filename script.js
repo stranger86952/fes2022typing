@@ -108,22 +108,25 @@ window.addEventListener('DOMContentLoaded', function(){
           $('.typnow').text('現在の入力: ' + String(b));
           if(b==words[ran]&&timer>0){
             bonus = bonus + 0.2;
+            bonus = bonus.toFixed(1);
             score = score + 10 + 10 * bonus;
             $('.typsta').text('ステータス: ' + String(10 + 10 * bonus));
-            $('.typsta').text('ステータス: ' + String(bonus));
+            $('.typbon').text('ボーナス: ' + String(bonus));
             $('.typsco').text('スコア: ' + String(score));
             typ();
           }
           else{
             bonus = bonus + 0.1;
+            bonus = bonus.toFixed(1);
             score = score + 5 + 5 * bonus;
             $('.typsta').text('ステータス: ' + String(5 + 5 * bonus));
-            $('.typsta').text('ステータス: ' + String(bonus));
+            $('.typbon').text('ボーナス: ' + String(bonus));
             $('.typsco').text('スコア: ' + String(score));
           }
         }
         else{
           bonus = 0;
+          bonus = bonus.toFixed(1);
           $('.typsta').text('ステータス: ミス！');
         }
       });
