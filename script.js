@@ -210,6 +210,7 @@ window.addEventListener('DOMContentLoaded', function(){
     );
     for(var i=0;i<Number(localStorage.getItem('kazu'));i++){
       ran3 = rankingdate[i].split(',');
+      console.log(ran3);
       $('.idgraph').append('<tr><td>' + String(i+1) + '位</td><td>' + String(ran3[0]) + '</td><td>' + String(ran3[1]) + '</td><td>' + String(ran3[2]) + '</td></tr>');
     }
   }
