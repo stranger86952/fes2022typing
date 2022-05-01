@@ -144,7 +144,7 @@ window.addEventListener('DOMContentLoaded', function(){
             $('.typsta').text('ステータス: ミス！');
           }
         }
-        console(String(event.keyCode));
+        console.log(String(event.keyCode));
       });
     }
 
