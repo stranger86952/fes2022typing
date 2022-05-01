@@ -103,7 +103,7 @@ window.addEventListener('DOMContentLoaded', function(){
     }
 
     function typ(){
-      ran = Math.floor(Math.random() * (words.length-3))+1;
+      ran = Math.floor(Math.random() * (words.length-2))+1;
       var i = 0;
       var b = '';
       $('.typans').text('英語: ' + String(words[ran]));
@@ -140,10 +140,12 @@ window.addEventListener('DOMContentLoaded', function(){
           console.log('yes');
         }
         else{
-          bonus = 0;
-          bonus = Math.floor((bonus)*1000)/1000;
-          $('.typsta').text('ステータス: ミス！');
-          console.log('yes');
+          if(String(event.keyCode)!='16'){
+            bonus = 0;
+            bonus = Math.floor((bonus)*1000)/1000;
+            $('.typsta').text('ステータス: ミス！');
+            console.log('yes');
+          }
         }
       });
     }
