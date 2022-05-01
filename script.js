@@ -142,6 +142,7 @@ window.addEventListener('DOMContentLoaded', function(){
           if(String(event.keyCode)!='16'){
             bonus = 0;
             $('.typsta').text('ステータス: ミス！');
+            $('.typbon').text('ボーナス: ' + String(bonus));
           }
         }
         console.log(String(event.keyCode));
