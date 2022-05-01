@@ -110,7 +110,7 @@ window.addEventListener('DOMContentLoaded', function(){
       $('.typpre').text('日本語: ' + String(preview[ran]));
       $('.typnex').text('次に入力する文字: ' + String(words[ran][i]));
       $('.typnow').text('現在の入力: ');
-      $(window).keypress(function(event){
+      $(window).keydown(function(event){
         var a = event.key;
         if(a==words[ran][i]){
           typCA = typCA + 1;
