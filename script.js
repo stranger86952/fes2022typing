@@ -217,12 +217,12 @@ window.addEventListener('DOMContentLoaded', function(){
       localStorage.setItem('kazu','0');
     }
     var ka = Number(localStorage.getItem['kazu']);
-    var s = String(score) + /\s/ + String(name) + /\s/ +String(typm);
+    var s = String(score) + ' ' + String(name) + ' ' +String(typm);
     localStorage.setItem('kazu' + String(ka),s);
     localStorage.setItem('kazu',String(ka + 1));
     alert('登録しました');
   }
   $('.identry').click(function() {
-    rankingB($('.entname').text(),$('.score').text(),$('.typm').text());
+    rankingB($('.entname').text(),scoreS,Math.floor((typCAS/60)*100)/100);
   })
 });
