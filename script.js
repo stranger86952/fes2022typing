@@ -87,6 +87,9 @@ window.addEventListener('DOMContentLoaded', function(){
         typCA = typCA + 1;
         b = b + String(a);
         i = i + 1;
+        if(i>=words[ran].length){
+          typ(typCA,bonus,bonusmax,score);
+        }
         $('.typnex').text('次に入力する文字: ' + String(words[ran][i]));
         $('.typnow').text('現在の入力: ' + String(b));
         if(b==words[ran]&&timer>0){
@@ -159,6 +162,7 @@ window.addEventListener('DOMContentLoaded', function(){
         }
         else{
           $('.typtim').text('残り時間: ' + String(timer) + '秒');
+          console.log(score);
         }
       }
     }
