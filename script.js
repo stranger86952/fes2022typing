@@ -212,7 +212,7 @@ window.addEventListener('DOMContentLoaded', function(){
       var ranran = String(rankingdate[i]);
       ran3 = ranran.split(",");
       console.log(ran3);
-      $('.idgraph').append('<tr><td>' + String(i+1) + '位</td><td>' + String(ran3[0]) + '</td><td>' + String(ran3[1]) + '</td><td>' + String(ran3[2]) + '</td></tr>');
+      $('.idgraph').append('<tr><td>' + String(i+1) + '位</td><td>' + String(ran3[1]) + '</td><td>' + String(ran3[0]) + '</td><td>' + String(ran3[2]) + '</td></tr>');
     }
   }
 
