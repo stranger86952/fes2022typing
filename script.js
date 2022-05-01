@@ -120,8 +120,8 @@ window.addEventListener('DOMContentLoaded', function(){
           $('.typnex').text('次に入力する文字: ' + String(words[ran][i]));
           $('.typnow').text('現在の入力: ' + String(b));
           if(b==words[ran]&&timer>0){
-            bonus = bonus + 0.2;
-            bonus = Math.floor((typCA/60)*100)/100;
+            bonus = bonus + 1/5;
+            bonus = Math.floor((typCA/60)*10)/10;
             bonusmax = Math.max(bonus,bonusmax);
             score = score + 10 + 10 * bonus;
             $('.typsta').text('ステータス: ' + String(10 + 10 * bonus));
@@ -130,8 +130,8 @@ window.addEventListener('DOMContentLoaded', function(){
             typ();
           }
           else{
-            bonus = bonus + 0.1;
-            bonus = Math.floor((typCA/60)*100)/100;
+            bonus = bonus + 1/10;
+            bonus = Math.floor((typCA/60)*10)/10;
             bonusmax = Math.max(bonus,bonusmax);
             score = score + 5 + 5 * bonus;
             $('.typsta').text('ステータス: ' + String(5 + 5 * bonus));
