@@ -110,7 +110,7 @@ window.addEventListener('DOMContentLoaded', function(){
           $('.typsta').text('ステータス: ' + String(100 + bonus));
           $('.typbon').text('ボーナス: ' + String(bonus));
           $('.typsco').text('スコア: ' + String(score));
-          return typ(typCA,bonus,bonusmax,score);
+          return [true,typ(typCA,bonus,bonusmax,score)];
         }
         else{
           bonus = bonus + 1;
@@ -227,6 +227,6 @@ window.addEventListener('DOMContentLoaded', function(){
     alert('登録しました');
   }
   $('.identry').click(function() {
-    rankingB($('.entname').text(),scoreS,Math.floor((typCAS/60)*100)/100);
+    rankingB($('.entname').val(),scoreS,Math.floor((typCAS/60)*100)/100);
   })
 });
