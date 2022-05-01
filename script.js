@@ -197,17 +197,7 @@ window.addEventListener('DOMContentLoaded', function(){
       ran = ran2.split(/\s/);
       rankingdate[i] = ran;
     }
-    rankingdate.sort(
-      function(a,b){
-        if (Number(a[0]) > Number(b[0])){
-          return 1;
-        }else if (Number(a[0]) < Number(b[0])){
-          return -1;
-        }else{
-          return 0;
-        }
-      }
-    );
+    rankingdate.sort();
     for(var i=0;i<Number(localStorage.getItem('kazu'));i++){
       var ranran = String(rankingdate[i]);
       ran3 = ranran.split(",");
