@@ -87,7 +87,9 @@ window.addEventListener('DOMContentLoaded', function(){
     $('.typnex').text('次に入力する文字: ' + String(words[ran][i]));
     $('.typnow').text('現在の入力: ');
     $(document).on('keydown','body',function(event){
-      if(!gametyu&&!gametyu2){
+      console.log(gametyu);
+      console.log(gametyu2);
+      if(!gametyu||!gametyu2){
         return true;
       }
       var a = event.key;
