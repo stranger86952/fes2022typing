@@ -10,6 +10,8 @@ window.addEventListener('DOMContentLoaded', function(){
   fetch("./words.txt").then(e => e.text()).then(e => words=e.split(/\s/));
   fetch("./preview.txt").then(e => e.text()).then(e => preview=e.split(/\s/));
 
+  console.log(words.length);
+
   function disp(classname){
     if(classname=='title'){
       gametyu = false;
@@ -101,7 +103,7 @@ window.addEventListener('DOMContentLoaded', function(){
     }
 
     function typ(){
-      ran = Math.floor(Math.random() * (words.length-2))+1;
+      ran = Math.floor(Math.random() * (words.length-3))+1;
       var i = 0;
       var b = '';
       $('.typans').text('英語: ' + String(words[ran]));
@@ -118,7 +120,7 @@ window.addEventListener('DOMContentLoaded', function(){
           $('.typnow').text('現在の入力: ' + String(b));
           if(b==words[ran]&&timer>0){
             bonus = bonus + 1/5;
-            bonus = Math.floor((bonus/60)*1000)/1000;
+            bonus = Math.floor((bonus)*1000)/1000;
             bonusmax = Math.max(bonus,bonusmax);
             score = score + 10 + 10 * bonus;
             $('.typsta').text('ステータス: ' + String(10 + 10 * bonus));
@@ -128,7 +130,7 @@ window.addEventListener('DOMContentLoaded', function(){
           }
           else{
             bonus = bonus + 1/10;
-            bonus = Math.floor((bonus/60)*1000)/1000;
+            bonus = Math.floor((bonus)*1000)/1000;
             bonusmax = Math.max(bonus,bonusmax);
             score = score + 5 + 5 * bonus;
             $('.typsta').text('ステータス: ' + String(5 + 5 * bonus));
@@ -139,7 +141,7 @@ window.addEventListener('DOMContentLoaded', function(){
         }
         else{
           bonus = 0;
-          bonus = Math.floor((bonus/60)*1000)/1000;
+          bonus = Math.floor((bonus)*1000)/1000;
           $('.typsta').text('ステータス: ミス！');
           console.log('yes');
         }
