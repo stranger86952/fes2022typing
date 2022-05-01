@@ -67,12 +67,6 @@ window.addEventListener('DOMContentLoaded', function(){
     disp('ranking');
   })
 
-  timer = 60;
-  score = 0;
-  typCA = 0;
-  bonus = 0;
-  bonusmax = 0;
-
   function typ(typCA,bonus,bonusmax,score){
     ran = Math.floor(Math.random() * (words.length-2))+1;
     var i = 0;
