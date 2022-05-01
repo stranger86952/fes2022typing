@@ -187,9 +187,9 @@ window.addEventListener('DOMContentLoaded', function(){
     if(localStorage['kazu'] == null){
       return false;
     }
-    var tbl = new Array(localStorage['kazu']);
-    for(var i=0;i<localStorage['kazu'];i++){
-      ran=localStorage['kazu' + String(i)].split(/\s/);
+    var tbl = new Array(localStorage.getItem['kazu']);
+    for(var i=0;i<localStorage.getItem['kazu'];i++){
+      ran=localStorage.getItem['kazu' + String(i)].split(/\s/);
       rankingdate[i] = ran;
       $('#graph').append('<tr><td>' + String(i+1) + '位</td><td>' + String(ran[0]) + '</td><td>' + String(ran[1]) + '</td><td>' + String(ran[2]) + '</td></tr>');
     }
@@ -204,7 +204,7 @@ window.addEventListener('DOMContentLoaded', function(){
         }
       }
     );
-    for(var i=0;i<localStorage['kazu'];i++){
+    for(var i=0;i<localStorage.getItem['kazu'];i++){
       ran=rankingdate[i].split(/\s/);
       $('#graph').append('<tr><td>' + String(i+1) + '位</td><td>' + String(ran[0]) + '</td><td>' + String(ran[1]) + '</td><td>' + String(ran[2]) + '</td></tr>');
     }
@@ -213,10 +213,10 @@ window.addEventListener('DOMContentLoaded', function(){
   rankingA();
 
   function rankingB(name,score,typm){
-    if(localStorage['kazu'] == null){
+    if(localStorage.getItem['kazu'] == null){
       localStorage.setItem('kazu',0);
     }
-    var ka = localStorage['kazu'];
+    var ka = localStorage.getItem['kazu'];
     var s = String(score) + /\s/ + String(name) + /\s/ +String(typm);
     localStorage.setItem('kazu' + String(ka),s);
     localStorage.setItem('kazu',ka + 1);
