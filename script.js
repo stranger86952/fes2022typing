@@ -142,7 +142,7 @@ window.addEventListener('DOMContentLoaded', function(){
         typCA = 0;
         bonus = 0;
         bonusmax = 0;
-        console.log('xD')
+        console.log('xD');
       }
       else{
         timer--;
