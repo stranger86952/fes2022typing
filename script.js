@@ -209,7 +209,7 @@ window.addEventListener('DOMContentLoaded', function(){
       }
     );
     for(var i=0;i<Number(localStorage.getItem('kazu'));i++){
-      ran3 = rankingdate[i].split(/\s/);
+      ran3 = rankingdate[i].split(',');
       $('#graph').append('<tr><td>' + String(i+1) + '位</td><td>' + String(ran3[0]) + '</td><td>' + String(ran3[1]) + '</td><td>' + String(ran3[2]) + '</td></tr>');
     }
   }
@@ -221,7 +221,7 @@ window.addEventListener('DOMContentLoaded', function(){
       localStorage.setItem('kazu','0');
     }
     var ka = Number(localStorage.getItem('kazu'));
-    var s = String(score) + ' ' + String(name) + ' ' +String(typm);
+    var s = String(score) + ',' + String(name) + ',' +String(typm);
     localStorage.setItem('kazu' + String(ka),s);
     localStorage.setItem('kazu',String(ka + 1));
     alert('登録しました');
