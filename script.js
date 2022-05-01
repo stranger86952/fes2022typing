@@ -1,4 +1,3 @@
-const fs = require('fs');
 var words=[];
 var preview=[];
 var gametyu=false;
@@ -6,8 +5,6 @@ var gametyu2=false;
 
 window.addEventListener('DOMContentLoaded', function(){
   disp('title');
-  var rankingdate=[];
-  fetch("./list.txt").then(e => e.text()).then(e => rankingA(rankingdate,e));
   fetch("./words.txt").then(e => e.text()).then(e => words=e.split(/\s/));
   fetch("./preview.txt").then(e => e.text()).then(e => preview=e.split(/\s/));
 
@@ -186,36 +183,44 @@ window.addEventListener('DOMContentLoaded', function(){
     game();
   })
 
-  function rankingA(rankingdate,e){
-    rankingdate=e.split(/\r\n|\n/);
-    for(var i=0;i<(rankingdate.length-1);i++){
+  function rankingA(){
+    if(localStorage['kazu'] == null){
+      return false;
+    }
+    var tbl = new Array(localStorage['kazu']);
+    for(var i=0;i<localStorage['kazu'];i++){
+      ran=localStorage['kazu' + String(i)].split(/\s/);
+      rankingdate[i] = ran;
+      $('#graph').append('<tr><td>' + String(i+1) + '位</td><td>' + String(ran[0]) + '</td><td>' + String(ran[1]) + '</td><td>' + String(ran[2]) + '</td></tr>');
+    }
+    rankingdate.sort(
+      function(a,b){
+        if (a[0] > b[0]){
+          return 1;
+        }else if (a[0] < b[0]){
+          return -1;
+        }else{
+          return 0;
+        }
+      }
+    );
+    for(var i=0;i<localStorage['kazu'];i++){
       ran=rankingdate[i].split(/\s/);
       $('#graph').append('<tr><td>' + String(i+1) + '位</td><td>' + String(ran[0]) + '</td><td>' + String(ran[1]) + '</td><td>' + String(ran[2]) + '</td></tr>');
     }
   }
 
-  function rankingB(name,score,typm){
-    /*var s="";
-    for(var i=0;i<(rankingdate.length-1);i++){
-      ran = rankingdate[i].split(/\s/);
-      if(ran[0]<=Number(score)){
-        s + String(score) + ' ' + String(name) + ' ' + String(typm) + /\r\n|\n/;
-        for(var j=i;j<(rankingdate.length-1);j++){
-          s = s + ranking[j] + /\r\n|\n/;
-        }
-        try {
-          fs.appendFileSync('./list.txt', s, 'utf-8');
-        } catch (err) {
-          console.log(err);
-        }
-      }
-      else{
-        s = s + ranking[i] + /\r\n|\n/;
-      }
-    }
-    rankingdate.push(score + ' ' + name + ' ' + typm);
-  }*/
+  rankingA();
 
+  function rankingB(name,score,typm){
+    if(localStorage['kazu'] == null){
+      localStorage.setItem('kazu',0);
+    }
+    var ka = localStorage['kazu'];
+    var s = String(score) + /\s/ + String(name) + /\s/ +String(typm);
+    localStorage.setItem('kazu' + String(ka),s);
+    localStorage.setItem('kazu',ka + 1);
+  }
   $('.identry').click(function() {
     rankingB($('.entname').text(),$('.score').text(),$('.typm').text());
   })
