@@ -184,14 +184,14 @@ window.addEventListener('DOMContentLoaded', function(){
   })
 
   function rankingA(){
-    if(localStorage['kazu'] == null){
+    if(localStorage.getItem('kazu') == null){
       return false;
     }
-    var rankingdate = new Array(localStorage.getItem['kazu']);
-    for(var i=0;i<Number(localStorage.getItem['kazu']);i++){
-      ran=localStorage.getItem['kazu' + String(i)].split(/\s/);
+    var rankingdate = new Array(localStorage.getItem('kazu'));
+    for(var i=0;i<Number(localStorage.getItem('kazu');i++){
+      ran2 = localStorage.getItem('kazu' + String(i))
+      ran = ran2.split(/\s/);
       rankingdate[i] = ran;
-      $('#graph').append('<tr><td>' + String(i+1) + '位</td><td>' + String(ran[0]) + '</td><td>' + String(ran[1]) + '</td><td>' + String(ran[2]) + '</td></tr>');
     }
     rankingdate.sort(
       function(a,b){
@@ -204,19 +204,19 @@ window.addEventListener('DOMContentLoaded', function(){
         }
       }
     );
-    for(var i=0;i<localStorage.getItem['kazu'];i++){
-      ran=rankingdate[i].split(/\s/);
-      $('#graph').append('<tr><td>' + String(i+1) + '位</td><td>' + String(ran[0]) + '</td><td>' + String(ran[1]) + '</td><td>' + String(ran[2]) + '</td></tr>');
+    for(var i=0;i<localStorage.getItem('kazu');i++){
+      ran3 = rankingdate[i].split(/\s/);
+      $('#graph').append('<tr><td>' + String(i+1) + '位</td><td>' + String(ran3[0]) + '</td><td>' + String(ran3[1]) + '</td><td>' + String(ran3[2]) + '</td></tr>');
     }
   }
 
   rankingA();
 
   function rankingB(name,score,typm){
-    if(localStorage.getItem['kazu'] == null){
+    if(localStorage.getItem('kazu') == null){
       localStorage.setItem('kazu','0');
     }
-    var ka = Number(localStorage.getItem['kazu']);
+    var ka = Number(localStorage.getItem(b));
     var s = String(score) + ' ' + String(name) + ' ' +String(typm);
     localStorage.setItem('kazu' + String(ka),s);
     localStorage.setItem('kazu',String(ka + 1));
