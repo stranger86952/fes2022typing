@@ -87,10 +87,6 @@ window.addEventListener('DOMContentLoaded', function(){
         typCA = typCA + 1;
         b = b + String(a);
         i = i + 1;
-        if(String(words[ran][i])=='undefind'){
-          typ(typCA,bonus,bonusmax,score);
-        }
-        $('.typnex').text('次に入力する文字: ' + String(words[ran][i]));
         $('.typnow').text('現在の入力: ' + String(b));
         if(b==words[ran]&&timer>0){
           bonus = bonus + 2;
@@ -110,6 +106,7 @@ window.addEventListener('DOMContentLoaded', function(){
           $('.typbon').text('ボーナス: ' + String(bonus));
           $('.typsco').text('スコア: ' + String(score));
         }
+        $('.typnex').text('次に入力する文字: ' + String(words[ran][i]));
       }
       else{
         if(String(event.keyCode)!='16'){
