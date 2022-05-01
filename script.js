@@ -133,7 +133,7 @@ window.addEventListener('DOMContentLoaded', function(){
             bonus = Math.floor((bonus)*1000)/1000;
             bonusmax = Math.max(bonus,bonusmax);
             score = Math.floor(100 * score + 500 + 500 * bonus)/1000;
-            $('.typsta').text('ステータス: ' + String(Math.floor(500 + 500 * bonus)/1000);
+            $('.typsta').text('ステータス: ' + String(Math.floor(500 + 500 * bonus)/1000));
             $('.typbon').text('ボーナス: ' + String(bonus));
             $('.typsco').text('スコア: ' + String(score));
           }
