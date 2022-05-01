@@ -149,7 +149,7 @@ window.addEventListener('DOMContentLoaded', function(){
     typ();
   }
 
-  $('#gaming').click(function() {
+  $('.idgaming').click(function() {
     game();
   })
 
@@ -183,7 +183,7 @@ window.addEventListener('DOMContentLoaded', function(){
     rankingdate.push(score + ' ' + name + ' ' + typm);
   }
 
-  $('#entry').click(function() {
+  $('.identry').click(function() {
     rankingB($('.entname').text(),$('.score').text(),$('.typm').text());
   })
   */
