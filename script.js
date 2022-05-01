@@ -117,7 +117,7 @@ window.addEventListener('DOMContentLoaded', function(){
           $('.typnex').text('次に入力する文字: ' + String(words[ran][i]));
           $('.typnow').text('現在の入力: ' + String(b));
           if(b==words[ran]&&timer>0){
-            bonus = bonus + 0.2;
+            bonus = bonus + 1/5;
             bonus = Math.floor((bonus/60)*1000)/1000;
             bonusmax = Math.max(bonus,bonusmax);
             score = score + 10 + 10 * bonus;
@@ -127,7 +127,7 @@ window.addEventListener('DOMContentLoaded', function(){
             typ();
           }
           else{
-            bonus = bonus + 0.1;
+            bonus = bonus + 1/10;
             bonus = Math.floor((bonus/60)*1000)/1000;
             bonusmax = Math.max(bonus,bonusmax);
             score = score + 5 + 5 * bonus;
