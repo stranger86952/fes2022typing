@@ -122,8 +122,8 @@ window.addEventListener('DOMContentLoaded', function(){
             bonus = bonus + 1/5;
             bonus = Math.floor((bonus)*1000)/1000;
             bonusmax = Math.max(bonus,bonusmax);
-            score = score + 10 + 10 * bonus;
-            $('.typsta').text('ステータス: ' + String(10 + 10 * bonus));
+            score = Math.floor(100 * score + 1000 + 1000 * bonus)/1000;
+            $('.typsta').text('ステータス: ' + String(Math.floor(1000 + 1000 * bonus)/1000));
             $('.typbon').text('ボーナス: ' + String(bonus));
             $('.typsco').text('スコア: ' + String(score));
             typ();
@@ -132,8 +132,8 @@ window.addEventListener('DOMContentLoaded', function(){
             bonus = bonus + 1/10;
             bonus = Math.floor((bonus)*1000)/1000;
             bonusmax = Math.max(bonus,bonusmax);
-            score = score + 5 + 5 * bonus;
-            $('.typsta').text('ステータス: ' + String(5 + 5 * bonus));
+            score = Math.floor(100 * score + 500 + 500 * bonus)/1000;
+            $('.typsta').text('ステータス: ' + String(Math.floor(500 + 500 * bonus)/1000);
             $('.typbon').text('ボーナス: ' + String(bonus));
             $('.typsco').text('スコア: ' + String(score));
           }
