@@ -73,7 +73,7 @@ window.addEventListener('DOMContentLoaded', function(){
   bonus = 0;
   bonusmax = 0;
 
-  function typ(){
+  function typ(typCA,bonus,bonusmax,score){
     ran = Math.floor(Math.random() * (words.length-2))+1;
     var i = 0;
     var b = '';
@@ -163,7 +163,7 @@ window.addEventListener('DOMContentLoaded', function(){
       }
     }
 
-    typ();
+    typ(typCA,bonus,bonusmax,score);
 
   }
 
