@@ -188,16 +188,16 @@ window.addEventListener('DOMContentLoaded', function(){
       return false;
     }
     var rankingdate = new Array(localStorage.getItem['kazu']);
-    for(var i=0;i<localStorage.getItem['kazu'];i++){
+    for(var i=0;i<Number(localStorage.getItem['kazu']);i++){
       ran=localStorage.getItem['kazu' + String(i)].split(/\s/);
       rankingdate[i] = ran;
       $('#graph').append('<tr><td>' + String(i+1) + '位</td><td>' + String(ran[0]) + '</td><td>' + String(ran[1]) + '</td><td>' + String(ran[2]) + '</td></tr>');
     }
     rankingdate.sort(
       function(a,b){
-        if (a[0] > b[0]){
+        if (Number(a[0]) > Number(b[0])){
           return 1;
-        }else if (a[0] < b[0]){
+        }else if (Number(a[0]) < Number(b[0])){
           return -1;
         }else{
           return 0;
@@ -214,12 +214,13 @@ window.addEventListener('DOMContentLoaded', function(){
 
   function rankingB(name,score,typm){
     if(localStorage.getItem['kazu'] == null){
-      localStorage.setItem('kazu',0);
+      localStorage.setItem('kazu','0');
     }
-    var ka = localStorage.getItem['kazu'];
+    var ka = Number(localStorage.getItem['kazu']);
     var s = String(score) + /\s/ + String(name) + /\s/ +String(typm);
     localStorage.setItem('kazu' + String(ka),s);
-    localStorage.setItem('kazu',ka + 1);
+    localStorage.setItem('kazu',String(ka + 1));
+    alert('登録しました');
   }
   $('.identry').click(function() {
     rankingB($('.entname').text(),$('.score').text(),$('.typm').text());
