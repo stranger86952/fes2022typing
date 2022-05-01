@@ -87,7 +87,7 @@ window.addEventListener('DOMContentLoaded', function(){
         typCA = typCA + 1;
         b = b + String(a);
         i = i + 1;
-        if(i>=words[ran].length){
+        if(String(words[ran][i])=='undefind'){
           typ(typCA,bonus,bonusmax,score);
         }
         $('.typnex').text('次に入力する文字: ' + String(words[ran][i]));
