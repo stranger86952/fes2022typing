@@ -77,6 +77,9 @@ window.addEventListener('DOMContentLoaded', function(){
   bonusmaxS = 0;
 
   function typ(typCA,bonus,bonusmax,score){
+    if(!gametyu&&!gametyu2){
+      return false;
+    }
     ran = Math.floor(Math.random() * (words.length-2))+1;
     var i = 0;
     var b = '';
@@ -84,7 +87,7 @@ window.addEventListener('DOMContentLoaded', function(){
     $('.typpre').text('日本語: ' + String(preview[ran]));
     $('.typnex').text('次に入力する文字: ' + String(words[ran][i]));
     $('.typnow').text('現在の入力: ');
-    $(document).on('keydown','.body',function(event){
+    $(document).on('keydown','body',function(event){
       if(!gametyu&&!gametyu2){
         return false;
       }
