@@ -109,7 +109,7 @@ window.addEventListener('DOMContentLoaded', function(){
           $('.typsta').text('ステータス: ' + String(100 + bonus));
           $('.typbon').text('ボーナス: ' + String(bonus));
           $('.typsco').text('スコア: ' + String(score));
-          typ(typCA,bonus,bonusmax,score);
+          return typ(typCA,bonus,bonusmax,score);
         }
         else{
           bonus = bonus + 1;
