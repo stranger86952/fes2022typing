@@ -53,15 +53,15 @@ window.addEventListener('DOMContentLoaded', function(){
     }
   }
 
-  $('#title').click(function() {
+  $('.idtitle').click(function() {
     disp('title');
   })
 
-  $('#game').click(function() {
+  $('.idgame').click(function() {
     disp('game');
   })
 
-  $('#ranking').click(function() {
+  $('.idranking').click(function() {
     disp('ranking');
   })
 
