@@ -63,10 +63,11 @@ window.addEventListener('DOMContentLoaded', function(){
     disp('gaming');
     $('.typsco').text('スコア: 0');
     $('.typsta').text('ステータス: 0');
+    $('.typbon').text('ボーナス: 0');
     timer = 60;
     score = 0;
     typCA = 0;
-    typWA = 0;
+    bonus = 0;
     var countup = setInterval(timecount,1000,timer);
 
     function timecount(){
@@ -101,23 +102,28 @@ window.addEventListener('DOMContentLoaded', function(){
         console.log(words[ran][i]);
         if(a==words[ran][i]){
           typCA = typCA + 1;
-          $('.typsco').text('スコア: ' + String(score));
           b = b + String(a);
           i++;
           $('.typnex').text('次に入力する文字: ' + String(words[ran][i]));
           $('.typnow').text('現在の入力: ' + String(b));
           if(b==words[ran]&&timer>0){
-            score = score + 10;
-            $('.typsta').text('ステータス: +10');
+            bonus = bonus + 0.2;
+            score = score + 10 + 10 * bonus;
+            $('.typsta').text('ステータス: ' + String(10 + 10 * bonus));
+            $('.typsta').text('ステータス: ' + String(bonus));
             $('.typsco').text('スコア: ' + String(score));
             typ();
           }
           else{
-            score = score + 5;
-            $('.typsta').text('ステータス: +5');
+            bonus = bonus + 0.1;
+            score = score + 5 + 5 * bonus;
+            $('.typsta').text('ステータス: ' + String(5 + 5 * bonus));
+            $('.typsta').text('ステータス: ' + String(bonus));
+            $('.typsco').text('スコア: ' + String(score));
           }
         }
         else{
+          bonus = 0;
           $('.typsta').text('ステータス: ミス！');
         }
       });
