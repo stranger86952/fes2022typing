@@ -216,7 +216,7 @@ window.addEventListener('DOMContentLoaded', function(){
     if(localStorage.getItem('kazu') == null){
       localStorage.setItem('kazu','0');
     }
-    var ka = Number(localStorage.getItem(b));
+    var ka = Number(localStorage.getItem('kazu'));
     var s = String(score) + ' ' + String(name) + ' ' +String(typm);
     localStorage.setItem('kazu' + String(ka),s);
     localStorage.setItem('kazu',String(ka + 1));
