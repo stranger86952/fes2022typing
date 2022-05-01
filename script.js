@@ -136,7 +136,6 @@ window.addEventListener('DOMContentLoaded', function(){
             $('.typbon').text('ボーナス: ' + String(bonus));
             $('.typsco').text('スコア: ' + String(score));
           }
-          console.log('yes');
         }
         else{
           if(String(event.keyCode)!='16'){
@@ -147,6 +146,7 @@ window.addEventListener('DOMContentLoaded', function(){
         }
         console.log(String(event.keyCode));
       });
+      $(document).on('keydown',window,function(event){});
     }
 
     typ();
