@@ -67,7 +67,13 @@ window.addEventListener('DOMContentLoaded', function(){
     disp('ranking');
   })
 
-  function typ(typCA,bonus,bonusmax,score){
+  timer = 60;
+  score = 0;
+  typCA = 0;
+  bonus = 0;
+  bonusmax = 0;
+
+  function typ(){
     ran = Math.floor(Math.random() * (words.length-2))+1;
     var i = 0;
     var b = '';
@@ -131,6 +137,12 @@ window.addEventListener('DOMContentLoaded', function(){
     function timecount(){
       if(!gametyu){
         clearInterval(countup);
+        timer = 60;
+        score = 0;
+        typCA = 0;
+        bonus = 0;
+        bonusmax = 0;
+        console.log('xD')
       }
       else{
         timer--;
@@ -151,7 +163,7 @@ window.addEventListener('DOMContentLoaded', function(){
       }
     }
 
-    typ(typCA,bonus,bonusmax,score);
+    typ();
 
   }
 
