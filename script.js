@@ -2,6 +2,7 @@
 var words=[];
 var preview=[];
 var gametyu=false;
+var gametyu2=false;
 
 window.addEventListener('DOMContentLoaded', function(){
   disp('title');
@@ -15,6 +16,7 @@ window.addEventListener('DOMContentLoaded', function(){
   function disp(classname){
     if(classname=='title'){
       gametyu = false;
+      gametyu2 = false;
       $('.title').show();
       $('.game').hide();
       $('.gaming').hide();
@@ -23,6 +25,7 @@ window.addEventListener('DOMContentLoaded', function(){
     }
     else if(classname=='game'){
       gametyu = false;
+      gametyu2 = false;
       $('.title').hide();
       $('.game').show();
       $('.gaming').hide();
@@ -31,6 +34,7 @@ window.addEventListener('DOMContentLoaded', function(){
     }
     else if(classname=='gaming'){
       gametyu = true;
+      gametyu2 = true;
       $('.title').hide();
       $('.game').hide();
       $('.gaming').show();
@@ -39,6 +43,7 @@ window.addEventListener('DOMContentLoaded', function(){
     }
     else if(classname=='after'){
       gametyu = false;
+      gametyu2 = false;
       $('.title').hide();
       $('.game').hide();
       $('.gaming').hide();
@@ -47,6 +52,7 @@ window.addEventListener('DOMContentLoaded', function(){
     }
     else if(classname=='ranking'){
       gametyu = false;
+      gametyu2 = false;
       $('.title').hide();
       $('.game').hide();
       $('.gaming').hide();
@@ -67,11 +73,11 @@ window.addEventListener('DOMContentLoaded', function(){
     disp('ranking');
   })
 
-  timer = 60;
-  score = 0;
-  typCA = 0;
-  bonus = 0;
-  bonusmax = 0;
+  timerS = 60;
+  scoreS = 0;
+  typCAS = 0;
+  bonusS = 0;
+  bonusmaxS = 0;
 
   function typ(typCA,bonus,bonusmax,score){
     ran = Math.floor(Math.random() * (words.length-2))+1;
@@ -82,20 +88,24 @@ window.addEventListener('DOMContentLoaded', function(){
     $('.typnex').text('次に入力する文字: ' + String(words[ran][i]));
     $('.typnow').text('現在の入力: ');
     $(document).on('keydown',window,function(event){
-      if(!gametyu){
+      if(!gametyu&&!gametyu2){
         return false;
       }
       var a = event.key;
       if(a==words[ran][i]){
         typCA = typCA + 1;
+        typCAS = typCA;
         b = b + String(a);
         i = i + 1;
         $('.typnex').text('次に入力する文字: ' + String(words[ran][i]));
         $('.typnow').text('現在の入力: ' + String(b));
         if(b==words[ran]&&timer>0){
           bonus = bonus + 2;
+          bonusS = bonus;
           bonusmax = Math.max(bonus,bonusmax);
+          bonusmaxS = bonusmax;
           score = score + 100 + bonus;
+          socreS = score;
           $('.typsta').text('ステータス: ' + String(100 + bonus));
           $('.typbon').text('ボーナス: ' + String(bonus));
           $('.typsco').text('スコア: ' + String(score));
@@ -103,9 +113,11 @@ window.addEventListener('DOMContentLoaded', function(){
         }
         else{
           bonus = bonus + 1;
-          bonus = Math.floor((bonus)*1000)/1000;
+          bonusS = bonus;
           bonusmax = Math.max(bonus,bonusmax);
+          bonusmaxS = bonusmax;
           score = score + 50 + bonus;
+          scoreS = score;
           $('.typsta').text('ステータス: ' + String(50+bonus));
           $('.typbon').text('ボーナス: ' + String(bonus));
           $('.typsco').text('スコア: ' + String(score));
@@ -130,6 +142,10 @@ window.addEventListener('DOMContentLoaded', function(){
     $('.typsco').text('スコア: 0');
     $('.typsta').text('ステータス: 0');
     $('.typbon').text('ボーナス: 0');
+    scoreS = 0;
+    typCAS = 0;
+    bonusS = 0;
+    bonusmaxS = 0;
     timer = 60;
     score = 0;
     typCA = 0;
@@ -144,16 +160,17 @@ window.addEventListener('DOMContentLoaded', function(){
       else{
         timer--;
         if(timer<-2){
+          gametyu=false;
           clearInterval(countup);
           disp('after');
-          $('.score').text('あなたのスコア: ' + String(score));
-          $('.typm').text('1秒で平均' + String(Math.floor((typCA/60)*100)/100) + '回タイピング');
-          $('.typCA').text('正しく打った回数: ' + String(typCA));
-          $('.typMax').text('マックスボーナス: ' + String(bonusmax));
+          $('.score').text('あなたのスコア: ' + String(scoreS));
+          $('.typm').text('1秒で平均' + String(Math.floor((typCAS/60)*100)/100) + '回タイピング');
+          $('.typCA').text('正しく打った回数: ' + String(typCAS));
+          $('.typMax').text('マックスボーナス: ' + String(bonusmaxS));
         }
         else if(timer<0){
           $('.typtim').text('終了！');
-          gametyu=false;
+          gametyu2=false;
         }
         else{
           $('.typtim').text('残り時間: ' + String(timer) + '秒');
