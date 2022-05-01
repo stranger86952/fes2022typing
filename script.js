@@ -137,12 +137,6 @@ window.addEventListener('DOMContentLoaded', function(){
     function timecount(){
       if(!gametyu){
         clearInterval(countup);
-        timer = 60;
-        score = 0;
-        typCA = 0;
-        bonus = 0;
-        bonusmax = 0;
-        console.log('xD');
       }
       else{
         timer--;
@@ -159,7 +153,6 @@ window.addEventListener('DOMContentLoaded', function(){
         }
         else{
           $('.typtim').text('残り時間: ' + String(timer) + '秒');
-          console.log(score);
         }
       }
     }
