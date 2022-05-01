@@ -119,21 +119,20 @@ window.addEventListener('DOMContentLoaded', function(){
           $('.typnex').text('次に入力する文字: ' + String(words[ran][i]));
           $('.typnow').text('現在の入力: ' + String(b));
           if(b==words[ran]&&timer>0){
-            bonus = bonus + 1/5;
-            bonus = Math.floor((bonus)*1000)/1000;
+            bonus = bonus + 2;
             bonusmax = Math.max(bonus,bonusmax);
-            score = Math.floor(100 * score + 1000 + 1000 * bonus)/1000;
-            $('.typsta').text('ステータス: ' + String(Math.floor(1000 + 1000 * bonus)/1000));
+            score = score + 100 + bonus;
+            $('.typsta').text('ステータス: ' + String(100 + bonus);
             $('.typbon').text('ボーナス: ' + String(bonus));
             $('.typsco').text('スコア: ' + String(score));
             typ();
           }
           else{
-            bonus = bonus + 1/10;
+            bonus = bonus + 1;
             bonus = Math.floor((bonus)*1000)/1000;
             bonusmax = Math.max(bonus,bonusmax);
-            score = Math.floor(100 * score + 500 + 500 * bonus)/1000;
-            $('.typsta').text('ステータス: ' + String(Math.floor(500 + 500 * bonus)/1000));
+            score = score + 50 + bonus;
+            $('.typsta').text('ステータス: ' + String(50+bonus));
             $('.typbon').text('ボーナス: ' + String(bonus));
             $('.typsco').text('スコア: ' + String(score));
           }
@@ -142,11 +141,10 @@ window.addEventListener('DOMContentLoaded', function(){
         else{
           if(String(event.keyCode)!='16'){
             bonus = 0;
-            bonus = Math.floor((bonus)*1000)/1000;
             $('.typsta').text('ステータス: ミス！');
-            console.log('yes');
           }
         }
+        console(String(event.keyCode));
       });
     }
 
