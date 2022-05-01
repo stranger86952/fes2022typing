@@ -87,7 +87,7 @@ window.addEventListener('DOMContentLoaded', function(){
           clearInterval(countup);
           disp('after');
           $('.score').text('あなたのスコア: ' + String(score));
-          $('.typm').text('1秒で平均' + String(Math.floor(typCA/60)) + '回タイピング');
+          $('.typm').text('1秒で平均' + String(Math.floor((typCA/60)*100)/100) + '回タイピング');
           $('.typCA').text('正しく打った回数: ' + String(typCA));
           $('.typMax').text('マックスボーナス: ' + String(bonusmax));
         }
@@ -121,7 +121,7 @@ window.addEventListener('DOMContentLoaded', function(){
           $('.typnow').text('現在の入力: ' + String(b));
           if(b==words[ran]&&timer>0){
             bonus = bonus + 0.2;
-            bonus = Number.parseFloat(bonus).toFixed(2);
+            bonus = Math.floor((typCA/60)*100)/100;
             bonusmax = Math.max(bonus,bonusmax);
             score = score + 10 + 10 * bonus;
             $('.typsta').text('ステータス: ' + String(10 + 10 * bonus));
@@ -131,7 +131,7 @@ window.addEventListener('DOMContentLoaded', function(){
           }
           else{
             bonus = bonus + 0.1;
-            bonus = Number.parseFloat(bonus).toFixed(2);
+            bonus = Math.floor((typCA/60)*100)/100;
             bonusmax = Math.max(bonus,bonusmax);
             score = score + 5 + 5 * bonus;
             $('.typsta').text('ステータス: ' + String(5 + 5 * bonus));
@@ -141,7 +141,7 @@ window.addEventListener('DOMContentLoaded', function(){
         }
         else{
           bonus = 0;
-          bonus = Number.parseFloat(bonus).toFixed(2);
+          bonus = Math.floor((typCA/60)*100)/100;
           $('.typsta').text('ステータス: ミス！');
         }
       });
