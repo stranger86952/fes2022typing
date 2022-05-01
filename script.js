@@ -87,7 +87,10 @@ window.addEventListener('DOMContentLoaded', function(){
     $('.typnex').text('次に入力する文字: ' + String(words[ran][i]));
     $('.typnow').text('現在の入力: ');
     $(document).on('keydown','body',function(event){
-      setTimeout(return typ(typCA,bonus,bonusmax,score);,10000);
+      const countUp = () => {
+        return typ(typCA,bonus,bonusmax,score);
+      }
+      setTimeout(countUp,10000);
       if(gametyu==false || gametyu2==false){
         return false;
       }
