@@ -122,7 +122,7 @@ window.addEventListener('DOMContentLoaded', function(){
             bonus = bonus + 2;
             bonusmax = Math.max(bonus,bonusmax);
             score = score + 100 + bonus;
-            $('.typsta').text('ステータス: ' + String(100 + bonus);
+            $('.typsta').text('ステータス: ' + String(100 + bonus));
             $('.typbon').text('ボーナス: ' + String(bonus));
             $('.typsco').text('スコア: ' + String(score));
             typ();
