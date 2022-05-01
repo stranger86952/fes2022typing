@@ -1,4 +1,4 @@
-//const fs = require('fs');
+const fs = require('fs');
 var words=[];
 var preview=[];
 var gametyu=false;
@@ -194,8 +194,8 @@ window.addEventListener('DOMContentLoaded', function(){
     }
   }
 
-  /*function rankingB(name,score,typm){
-    var s="";
+  function rankingB(name,score,typm){
+    /*var s="";
     for(var i=0;i<(rankingdate.length-1);i++){
       ran = rankingdate[i].split(/\s/);
       if(ran[0]<=Number(score)){
@@ -214,10 +214,9 @@ window.addEventListener('DOMContentLoaded', function(){
       }
     }
     rankingdate.push(score + ' ' + name + ' ' + typm);
-  }
+  }*/
 
   $('.identry').click(function() {
     rankingB($('.entname').text(),$('.score').text(),$('.typm').text());
   })
-  */
 });
