@@ -93,7 +93,7 @@ window.addEventListener('DOMContentLoaded', function(){
         return true;
       }
       var a = event.key;
-      if(a==words[ran][i]){
+      if(a==words[ran][i] || a.codePointAt(0)-32==words[ran][i].codePointAt(0)){
         typCA = typCA + 1;
         typCAS = typCA;
         b = b + String(a);
