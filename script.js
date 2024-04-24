@@ -7,9 +7,6 @@ window.addEventListener('DOMContentLoaded', function(){
   disp('title');
   fetch("./words.txt").then(e => e.text()).then(e => words=e.split(/\s/));
   fetch("./preview.txt").then(e => e.text()).then(e => preview=e.split(/\s/));
-
-  console.log(words.length);
-
   function disp(classname){
     if(classname=='title'){
       gametyu = false;
@@ -87,8 +84,6 @@ window.addEventListener('DOMContentLoaded', function(){
     $('.typnex').text('次に入力する文字: ' + String(words[ran][i]));
     $('.typnow').text('現在の入力: ');
     $(document).on('keydown','body',function(event){
-      console.log(gametyu);
-      console.log(gametyu2);
       if(!gametyu||!gametyu2){
         return true;
       }
@@ -130,11 +125,7 @@ window.addEventListener('DOMContentLoaded', function(){
           $('.typsta').text('ステータス: ミス！');
           $('.typbon').text('ボーナス: ' + String(bonus));
         }
-        else{
-          console.log('hoge');
-        }
       }
-      console.log(String(event.keyCode));
     });
   }
 
@@ -201,7 +192,6 @@ window.addEventListener('DOMContentLoaded', function(){
     for(var i=0;i<Number(localStorage.getItem('kazu'));i++){
       var ranran = String(rankingdate[Number(localStorage.getItem('kazu')) - i - 1]);
       ran3 = ranran.split(",");
-      console.log(ran3);
       $('.idgraph').append('<tr><td>' + String(i+1) + '位</td><td>' + String(ran3[1]) + '</td><td>' + String(ran3[0]) + '</td><td>' + String(ran3[2]) + '</td></tr>');
     }
   }
